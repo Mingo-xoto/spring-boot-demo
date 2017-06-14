@@ -1,0 +1,10 @@
+#dubbo属性配置
+dubbo:
+  application:
+    name: spring-boot-yaml-consumer
+  registry:
+    address: 127.0.0.1:2180,127.0.0.1:2181,127.0.0.1:2182
+    protocol: zookeeper
+  protocol:
+    name: dubbo
+    port: 20880

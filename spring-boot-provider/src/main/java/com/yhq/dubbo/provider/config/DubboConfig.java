@@ -27,7 +27,7 @@ public class DubboConfig {
 	 * @return
 	 */
 	@Bean
-	public ApplicationConfig application() {
+	public ApplicationConfig applicationConfig() {
 		ApplicationConfig applicationConfig = new ApplicationConfig("provider");
 		return applicationConfig;
 	}
@@ -37,7 +37,7 @@ public class DubboConfig {
 	 * 
 	 * @return
 	 */
-	@Bean
+	@Bean(name = "registryConfig")
 	public RegistryConfig registry() {
 		RegistryConfig registry = new RegistryConfig("127.0.0.1:2180,127.0.0.1:2181,127.0.0.1:2182");
 		registry.setProtocol("zookeeper");
@@ -45,7 +45,7 @@ public class DubboConfig {
 	}
 
 	@Bean
-	public AnnotationBean annotation() {
+	public AnnotationBean annotationBean() {
 		AnnotationBean annotation = new AnnotationBean();
 		annotation.setPackage("com.yhq.dubbo.provider.service");
 		return annotation;
@@ -56,7 +56,7 @@ public class DubboConfig {
 	 * 
 	 * @return
 	 */
-	@Bean
+	@Bean(name = "protocolConfig")
 	public ProtocolConfig protocol() {
 		ProtocolConfig protocol = new ProtocolConfig("dubbo");
 		protocol.setPort(20880);

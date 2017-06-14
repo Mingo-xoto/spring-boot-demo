@@ -1,0 +1,30 @@
+#测试
+app:
+  remoteAddress: 127.0.0.1
+  name: spring-boot
+  childConfig:
+    name: mingo
+#测试
+my:
+  fuck: true
+  shit: false
+  age: 20
+  name: faker
+  account:
+  - faker
+  - saber
+  account2:
+  - faker2
+  - saber2
+  bean:
+    name: 你好
+    sex: 男
+dubbo:
+  application:
+    name: spring-boot-yaml-consumer
+  registry:
+    address: 127.0.0.1:2180,127.0.0.1:2181,127.0.0.1:2182
+    protocol: zookeeper
+  protocol:
+    name: dubbo
+    port: 20880
