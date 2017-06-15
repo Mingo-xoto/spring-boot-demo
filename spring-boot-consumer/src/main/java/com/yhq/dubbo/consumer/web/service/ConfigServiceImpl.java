@@ -1,5 +1,7 @@
 package com.yhq.dubbo.consumer.web.service;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
@@ -13,6 +15,8 @@ import net.sf.json.JSONObject;
 
 @Service
 public class ConfigServiceImpl implements ConfigService {
+
+	private static final Logger logger = LogManager.getLogger(ConfigServiceImpl.class);
 
 	private final MyConfig myConfig;
 
@@ -33,6 +37,7 @@ public class ConfigServiceImpl implements ConfigService {
 
 	@Override
 	public ModelMap getConfig() {
+		logger.info("获取config");
 		ModelMap modelMap = new ModelMap();
 		modelMap.put("topicExchangeConfig", JSONObject.fromObject(topicExchangeConfig));
 		modelMap.put("applicationConfig", applicationConfig.getName());

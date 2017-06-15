@@ -14,6 +14,20 @@
 	</parent>
 	<dependencies>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.yhq</groupId>
 			<artifactId>spring-boot-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
@@ -23,17 +37,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!-- <dependency> -->
-		<!-- <groupId>io.dubbo.springboot</groupId> -->
-		<!-- <artifactId>spring-boot-starter-dubbo</artifactId> -->
-		<!-- <version>1.0.0</version> -->
-		<!-- <exclusions> -->
-		<!-- <exclusion> -->
-		<!-- <groupId>com.alibaba</groupId> -->
-		<!-- <artifactId>dubbo</artifactId> -->
-		<!-- </exclusion> -->
-		<!-- </exclusions> -->
-		<!-- </dependency> -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>dubbo</artifactId>
