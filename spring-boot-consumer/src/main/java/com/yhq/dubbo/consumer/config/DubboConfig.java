@@ -10,7 +10,6 @@ import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.spring.AnnotationBean;
 
-
 @Configuration
 @ComponentScan(basePackages = ("com.yhq.dubbo.consumer.web.controller"))
 public class DubboConfig {

@@ -1,6 +1,5 @@
 package com.yhq.dubbo.consumer.web.controller;
 
-import java.lang.reflect.Method;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
