@@ -1,16 +1,17 @@
 package com.yhq.dubbo.consumer.config;
 
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.spring.AnnotationBean;
 
-@Configurable
+
+@Configuration
 @ComponentScan(basePackages = ("com.yhq.dubbo.consumer.web.controller"))
 public class DubboConfig {
 

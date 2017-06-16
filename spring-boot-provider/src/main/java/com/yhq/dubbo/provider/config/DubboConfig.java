@@ -1,8 +1,8 @@
 package com.yhq.dubbo.provider.config;
 
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ProtocolConfig;
@@ -17,7 +17,7 @@ import com.alibaba.dubbo.config.spring.AnnotationBean;
  * @author Administrator
  *
  */
-@Configurable
+@Configuration
 @ComponentScan(basePackages = ("com.yhq.dubbo.provider.service"))
 public class DubboConfig {
 
