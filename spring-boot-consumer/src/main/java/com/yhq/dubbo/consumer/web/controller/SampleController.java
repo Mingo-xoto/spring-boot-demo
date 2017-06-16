@@ -1,22 +1,25 @@
 package com.yhq.dubbo.consumer.web.controller;
 
+import java.lang.reflect.Method;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.yhq.dubbo.consumer.web.service.CityService;
 import com.yhq.dubbo.consumer.web.service.ConfigService;
-import com.yhq.service.IXFuckService;
 
 @Controller
 @RequestMapping("/")
 public class SampleController {
 
-	@Reference(interfaceClass = IXFuckService.class)
-	private IXFuckService fuckService;
+	// @Reference(interfaceClass = IXFuckService.class)
+	// private IXFuckService fuckService;
 
 	@Autowired
 	private CityService cityService;
@@ -36,11 +39,25 @@ public class SampleController {
 		return configService.getConfig();
 	}
 
-
-	@RequestMapping("index")
-	@ResponseBody
-	public String helloWorld() {
-		return cityService.getCity("Bath", "UK").getName() + fuckService.fuck();
+	@RequestMapping(value = "index")
+	public ModelAndView index(ModelMap model) {
+		ModelAndView modelAndView = new ModelAndView("index");
+		model.put("time", new Date());
+		model.put("message", "啥？");
+		model.put("message1", "所属？");
+		model.put("message3", "自动重启测试");
+		modelAndView.addAllObjects(model);
+		return modelAndView;
 	}
 
+	// @RequestMapping("hello")
+	// @ResponseBody
+	// public String helloWorld() {
+	// return cityService.getCity("Bath", "UK").getName() + fuckService.fuck();
+	// }
+
+	@RequestMapping(value = "hello", method = RequestMethod.POST)
+	public String helloWorld() {
+		return "index";
+	}
 }
