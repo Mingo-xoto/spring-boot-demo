@@ -1,5 +1,7 @@
 package com.yhq.dubbo.consumer.web.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,8 +19,11 @@ public class ResourceUrlProviderController {
 	@Autowired
 	private ResourceUrlProvider resourceUrlProvider;
 
-	@ModelAttribute("urls")
-	public ResourceUrlProvider urls() {
-		return this.resourceUrlProvider;
+	@ModelAttribute(value = "urls")
+	public ResourceUrlProvider urls(HttpServletRequest request) {
+		if (request.getRequestURI().endsWith(".json") || request.getRequestURI().endsWith(".xml") ) {
+			return null;
+		}
+		return resourceUrlProvider;
 	}
 }

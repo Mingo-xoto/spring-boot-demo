@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.yhq.dubbo.consumer.web.pojo.City;
 import com.yhq.dubbo.consumer.web.service.CityService;
 import com.yhq.dubbo.consumer.web.service.ConfigService;
 
@@ -49,11 +50,11 @@ public class SampleController {
 		return modelAndView;
 	}
 
-	// @RequestMapping("hello")
-	// @ResponseBody
-	// public String helloWorld() {
-	// return cityService.getCity("Bath", "UK").getName() + fuckService.fuck();
-	// }
+	@RequestMapping("city")
+	@ResponseBody
+	public City city() {
+		return new City("广州", "中国");
+	}
 
 	@RequestMapping(value = "hello", method = RequestMethod.POST)
 	public String helloWorld() {
